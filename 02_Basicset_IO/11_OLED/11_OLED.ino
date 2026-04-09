@@ -21,7 +21,7 @@ void setup()
 
   display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 5);
+  display.setCursor(38, 5);
   display.print(F("Hello"));
   display.setCursor(0, 25);
   display.print(F("ESP32"));
