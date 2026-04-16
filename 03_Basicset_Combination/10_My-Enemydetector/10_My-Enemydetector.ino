@@ -19,6 +19,8 @@ float Distance = 0; //Calculation results from Duration
 #define _RA 466.164
 #define TI 493.883
 #define octDO 523.251
+#define octMI 658
+#define octRA 880
 
 void doremi0() {
   ledcWriteTone(spkrPin, RA);
@@ -39,6 +41,15 @@ void doremi1() {
 }
 
 void doremi2() {
+  ledcWriteTone(spkrPin, octRA);
+  delay(20);
+  ledcWriteTone(spkrPin, octMI);
+  delay(20);
+  ledcWriteTone(spkrPin, 0); // no sound
+  delay(10);
+}
+
+void doremi3() {
   ledcWriteTone(spkrPin, 0); // no sound
   delay(250);
 
@@ -65,16 +76,20 @@ void loop() {
   Duration = Duration/2; //Half the round trip time
   Distance = Duration*340*100/1000000; //Set sonic speed to 340 m/s
 
-  if (Distance <= 20 && Distance > 5) {
+  if (Distance <= 50 && Distance > 30) {
       doremi0();
     delay(50);
-  } else if (Distance <= 5) {
+  } else if (Distance <= 30 && Distance >10) {
       doremi1();
     delay(50);
+  } else if (Distance <= 10) {
+      doremi2();
+    delay(10);
+  
   }
 
   if (Distance >= 20) {
-      doremi2();
+      doremi3();
     delay(50);
   }
 
