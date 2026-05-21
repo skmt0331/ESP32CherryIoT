@@ -13,7 +13,7 @@
 const char* ssid = "xxxxxxx";
 const char* password =  "xxxxxxxx";
 
-const String endpoint = "http://api.openweathermap.org/data/2.5/weather?q=kofu,jp&APPID=";
+const String endpoint = "http://api.openweathermap.org/data/2.5/weather?q=xxxxxx,jp&APPID=";
 const String key = "xxxxxxxx"; // Your API key
 
 const int trigPin = 3; //3:ConnectorA 4:ConnectorB 距離センサー
